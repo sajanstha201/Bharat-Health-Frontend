@@ -8,6 +8,7 @@ function App() {
   const baseUrl=useSelector(state=>state.baseUrl).backend
   return (
     <>
+    <p className='font-extralight text-lg shadow-xl w-fit bg-emerald-700 text-white'> Bharat Helath</p>
     <p> Bharat Helath</p>
     {baseUrl}
     </>
