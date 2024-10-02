@@ -3,7 +3,7 @@ import React from "react"
 export default function NonRegisteredMainPage() {
     return (
         <>
-            <p>Bharat Health</p>
+        <p>This is for normal user</p>
         </>
     )
 }
