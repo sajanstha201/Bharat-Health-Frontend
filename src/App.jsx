@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-    <p> Bharat Helath</p>
+    <p className='font-extralight text-lg shadow-xl w-fit bg-emerald-700 text-white'> Bharat Helath</p>
     </>
   )
 }
