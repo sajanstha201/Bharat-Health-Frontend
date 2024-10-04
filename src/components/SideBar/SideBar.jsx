@@ -3,8 +3,8 @@ import Select from 'react-select'
 import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser ,faCar, faClose, faBars} from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from "react-router-dom";
-export default function SideBar(){
+import { useNavigate,Link } from "react-router-dom";
+export default function SideBar({navElements}){
     const [user,setUser]=useState('')
     const navigate=useNavigate()
     const[isHidden,setIsHidden]=useState(false)
@@ -17,18 +17,11 @@ export default function SideBar(){
             <FontAwesomeIcon icon={faUser} size='2x'/>
             <p>Guest</p>
         </div>
-        <div className="flex items-center gap-5">
-            <FontAwesomeIcon icon={faCar} size="2x"/>
-            One Component
-        </div>
-        <div className="flex items-center gap-5">
-            <FontAwesomeIcon icon={faCar} size="2x"/>
-            Second Component
-        </div>
-        <div className="flex items-center gap-5">
-            <FontAwesomeIcon icon={faCar} size="2x"/>
-            Third Component
-        </div>
+        {navElements.map(element =>(       
+            <Link to={element.url} className="flex items-center gap-5">
+            <FontAwesomeIcon icon={element.icon} size="2x"/>
+            {element.name}
+        </Link>))}
 
         <div className="flex">
             <Select
