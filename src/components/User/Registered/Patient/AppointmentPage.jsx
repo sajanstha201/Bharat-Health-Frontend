@@ -3,7 +3,7 @@ import SideBar from '../../../SideBar/SideBar'
 import DoctorB from './DocotrB.svg'
 export default function AppointmentPage() {
   return (
-    <div style={{backgroundColor: "#F4F4F4",width:"967px", aspectRatio:"4/3"}} className='grid grid-cols-2 rounded-xl mx-72'>
+    <div style={{backgroundColor: "#F4F4F4",width:"967px", aspectRatio:"4/3"}} className='grid grid-cols-2 rounded-xl m-auto my-4'>
         <div style={{gridColumnStart:'1 span 1'}} className='flex gap-7 flex-col justify-center items-center'>
             <input type="text" placeholder='First Name' className='w-80 h-12 flex-shrink-0 rounded-xl placeholder:text-black placeholder:font-semibold text-black font-semibold p-3' />
             <input type="text" placeholder='Middle Name' className='w-80 h-12 flex-shrink-0 rounded-xl placeholder:text-black placeholder:font-semibold text-black font-semibold p-3' />
