@@ -6,7 +6,8 @@ import { faCar, faClose } from "@fortawesome/free-solid-svg-icons"
 import { faAdjust } from "@fortawesome/free-solid-svg-icons/faAdjust"
 export default function PatientMainPage(){
    return(
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-row gap-3">
+         <div className="w-[20%]">
          <SideBar className="col-start-1"
             navElements={[
                {name:'first component',url:'/user/first', icon:faCar},
@@ -14,8 +15,11 @@ export default function PatientMainPage(){
                {name:'Appointments', url: '/patient/appointments', icon: faAdjust}
             ]}
          />
-         <Search></Search>
-         <Outlet />
+         </div>
+         <div className="w-[80%]">
+            <Search></Search>
+            <Outlet />
+         </div>
       </div>
    )
 }

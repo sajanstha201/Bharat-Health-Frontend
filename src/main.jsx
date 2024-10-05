@@ -13,7 +13,7 @@ const router = createBrowserRouter(
       element: <Layout/>,
       children: [
         {
-          path:"user",
+          path:"",
           element: <NonRegisteredMainPage />
         },
         {
