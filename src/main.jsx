@@ -5,7 +5,7 @@ import NonRegisteredMainPage from "./components/User/NonRegistered/NonRegistered
 import App from './App.jsx'
 import './index.css'
 import {DoctorMainPage,PharmacyMainPage,PatientMainPage,TestLabMainPage} from './components/User/Registered'
-import AppointmentPage from "./components/User/Registered/Patient/AppointmentPage.jsx"
+import { Setting as PatientSetting,MedicalReport as PatientMedicalReport,Appointment as PatientAppointment} from "./components/User/Registered/Patient/index.jsx"
 const router = createBrowserRouter(
   [
     {
@@ -16,16 +16,21 @@ const router = createBrowserRouter(
           path:"",
           element: <NonRegisteredMainPage />
         },
+
+
+
         {
           path:"patient",
           element:<PatientMainPage/>,
           children:[
-            {
-              path: 'appointments',
-              element: <AppointmentPage />
-            }
+            {path: 'appointments',element: <PatientAppointment />},
+            {path:'settings',element:<PatientSetting/>},
+            {path:'medical-report',element:<PatientMedicalReport/>}
           ]
         },
+
+
+
         {
           path:"doctor",
           element:<DoctorMainPage/>
