@@ -8,10 +8,6 @@ export default function SideBar({navElements}){
     const navigate=useNavigate()
    return(
     <div className={`h-screen flex flex-col gap-10 p-4 w-full top-0  left-0 rounded-md  bg-gray-200 shadow-lg transition-all duration-200`}>
-        <div className="flex items-start w-full p-2 gap-10">
-            <FontAwesomeIcon icon={faUser} size='2x'/>
-            <p>Guest</p>
-        </div>
         {navElements.map(element =>(       
             <Link to={element.url} className="flex items-center gap-5">
             <FontAwesomeIcon icon={element.icon} size="2x"/>
