@@ -2,13 +2,13 @@ import React from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 import MedicalReport from "./MedicalReport/MedicalReport";
 import PatientMainPage from "./PatientMainPage";
-import Appointment from "./Appointment/Appointment";
-import TestRecord from "./TestRecord/TestRecord";
+import { Appointment, BookAppointment } from "./Appointment";
 import SideBar from "../../../SideBar/SideBar";
 import { faCog, faFileMedical, faNotesMedical, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faAdjust } from "@fortawesome/free-solid-svg-icons/faAdjust";
 import {SettingMainPage,AccountSecurity,AppointmentSetting,MedicalRecordManagement,PaymentAndBilling,ProfileManagement,TestLabPreference} from "./Setting";
 import Search from "../../../Search/Search"
+import { AddingTestRecord, DisplayAllTestRecord, TestRecordMainPage, ViewOneTestRecord } from "./TestRecord";
 const PatientCommonDiv = () => {
   return (
     <div className="flex">
@@ -38,9 +38,16 @@ export default function PatientRouter() {
       <Routes>
         <Route path="" element={<PatientCommonDiv />}>
           <Route path="" element={<PatientMainPage />} />
-          <Route path="appointments" element={<Appointment />} />
+          <Route path="appointments">
+              <Route path="" element={<Appointment/>}/>
+              <Route path="book-appointment" element={<BookAppointment/>}/>
+          </Route>
           <Route path="medical-report" element={<MedicalReport />} />
-          <Route path="test-record" element={<TestRecord />} />
+          <Route path="test-record">
+                <Route path="" element={<TestRecordMainPage/>}/>
+                <Route path='adding-test-record' element={<AddingTestRecord/>}/>
+                <Route path='view-one-test-record' element={<ViewOneTestRecord/>}/>
+          </Route>
           <Route path="settings">
                 <Route path="" element={<SettingMainPage/>}/>
                 <Route path="account-security" element={<AccountSecurity/>}/>
