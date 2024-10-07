@@ -1,0 +1,7 @@
+export {default as SettingMainPage} from './SettingMainPage.jsx'
+export { default as AccountSecurity} from './AccountSecurity.jsx'
+export { default as AppointmentSetting} from './AppointmentSetting.jsx'
+export { default as MedicalRecordManagement} from './MedicalRecordManagement.jsx'
+export { default as PaymentAndBilling} from './PaymentAndBilling.jsx'
+export { default as ProfileManagement} from './ProfileManagement.jsx'
+export { default as TestLabPreference} from './TestLabPreference.jsx'
