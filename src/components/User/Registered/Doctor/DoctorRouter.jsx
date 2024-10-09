@@ -5,15 +5,19 @@ import { faAdjust, faBlog, faCar,faClose, faCog, faHeartbeat, faMessage, faPills
 import Appointment from "./Appointment/Appointment"
 import DiseasePredictionModel from "./DiseasePredictionModel/DiseasePredictionModel"
 import Message from "./Message/Message"
-import Setting from "./Setting/Setting"
-import MedicalPrescription from "./MedicalPrescription/MedicalPrescription"
+import { AccountSecurity, AppointmentPreference, ClinicSettings, PaymentAndBilling, ProfileManagement, Setting } from "./Setting"
+import AppointmentDetails from "./Appointment/AppointmentDetails"
+import UpcommingAppointment from "./Appointment/UpcommingAppointment"
+import CompletedAppointment from "./Appointment/CompletedAppointment"
+import {MedicalPrescription, NewPrescription, OldPrescription } from "./MedicalPrescription"
+import DoctorMainPage from "./DoctorMainPage"
 const DoctorCommonDiv=()=>{
     return(
     <div className="flex flex-row gap-3">
         <div className="w-[20%]">
         <SideBar navElements={[
         {name:'Doctor',url:'/doctor',icon:faUserDoctor},
-        {name:'Appointment',url:'/doctor/appointment', icon:faAdjust},
+        {name:'My Appointment',url:'/doctor/appointment', icon:faAdjust},
         {name:'Medical Prescription',url:'/doctor/prescription',icon:faPills},
         {name:'Disease Prediction Model',url:'/doctor/disease-model', icon:faHeartbeat},
         {name:'Message',url:'/doctor/message', icon:faMessage},
@@ -22,8 +26,8 @@ const DoctorCommonDiv=()=>{
         ]}/>
         </div>
 
-        <div className="w-[80%]">
-        Doctor main page aflljk
+        <div className="w-[80%] flex flex-col">
+            common in all the sectoin
         <Outlet/>
         </div>
      </div>
@@ -34,11 +38,26 @@ export default function DoctorRouter(){
    <>
    <Routes>
         <Route path="" element={<DoctorCommonDiv/>}>
-            <Route path="appointment" element={<Appointment/>}/>
-            <Route path="prescription" element={<MedicalPrescription/>}/>
+            <Route path="" element={<DoctorMainPage/>}/>
+            <Route path="appointment" element={<Appointment/>}>
+                <Route path="" element={<UpcommingAppointment/>} />
+                <Route path="history" element={<CompletedAppointment/>}/>
+                <Route path="detail" element={<AppointmentDetails/>}/>
+            </Route>
+            <Route path="prescription" element={<MedicalPrescription/>}>
+                <Route path="" element={<OldPrescription/>}/>
+                <Route path="new-prescription" element={<NewPrescription/>}/>
+            </Route>
             <Route path="disease-model" element={<DiseasePredictionModel/>}/>
             <Route path="message" element={<Message/>}/>
-            <Route path="setting" element={<Setting/>}/>
+            <Route path="setting">
+                <Route path="" element={<Setting/>}/>
+                <Route path="profile-management" element={<ProfileManagement/>}/>
+                <Route path="appointment-preference" element={<AppointmentPreference/>}/>
+                <Route path="clinic-settings" element={<ClinicSettings/>}/>
+                <Route path="account-security" element={<AccountSecurity/>}/>
+                <Route path="payment-and-billing" element={<PaymentAndBilling/>}/>
+            </Route>
         </Route>
    </Routes>
    </>)
