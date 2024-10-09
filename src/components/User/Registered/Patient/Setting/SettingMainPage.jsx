@@ -11,13 +11,13 @@ export default function SettingMainPage(){
         {name:'Appointment Setting',path:'appointment-setting',icon:faCalendarAlt},
         {name:'Medical Record Management',path:'medical-record-management',icon:faLink},
         {name:'Test Lab Preference',path:'test-lab-preference',icon:faVials},
-        {name:'Payment and Billing',path:'payment-and-billin',icon:faCreditCard},
+        {name:'Payment and Billing',path:'payment-and-billing',icon:faCreditCard},
      ]
    return(
    <>
     <div className="flex flex-wrap gap-5">
       {settings.map((e,i)=>(
-        <Link to={e.path} className="w-[200px] h-[220px] shadow-md border rounded-md flex text-center items-center justify-center flex-col cursor-pointer hover:scale-105 hover:bg-gray-300 transition-all duration-300 m-4">
+        <Link to={e.path} className="gap-4 w-[200px] h-[220px] shadow-md border rounded-md flex text-center items-center justify-center flex-col cursor-pointer hover:scale-105 hover:bg-gray-300 transition-all duration-300 m-4">
         <FontAwesomeIcon icon={e.icon} size="2x"/>
         {e.name}
         </Link>))}
