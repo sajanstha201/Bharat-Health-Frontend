@@ -1,16 +1,15 @@
 import React from "react"
-import { faCab,faClose, faCreditCard, faLink, faLock, faUser, faVials } from "@fortawesome/free-solid-svg-icons"
+import { faCab,faClose, faCreditCard, faHospital, faLink, faLock, faUser, faVials } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { icon } from "@fortawesome/fontawesome-svg-core"
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
-export default function SettingMainPage(){
+export default function Setting(){
     const settings=[
         {name:'Profile Management',path:'profile-management',icon:faUser},
-        {name:'Account Security',path:'account-security',icon:faLock},
-        {name:'Appointment Setting',path:'appointment-setting',icon:faCalendarAlt},
-        {name:'Medical Record Management',path:'medical-record-management',icon:faLink},
-        {name:'Test Lab Preference',path:'test-lab-preference',icon:faVials},
+        {name:'Clinic Settings',path:'clinic-settings',icon:faHospital},
+        {name:'Appointment Preference',path:'appointment-preference',icon:faLock},
+        {name:'Account Security',path:'account-security',icon:faLink},
         {name:'Payment and Billing',path:'payment-and-billing',icon:faCreditCard},
      ]
    return(

@@ -1,0 +1,6 @@
+export { default as ProfileManagement} from './ProfileManagement'
+export { default as ClinicSettings} from './ClinicSettings'
+export { default as AppointmentPreference} from './AppointmentPreference'
+export { default as AccountSecurity}    from './AccountSecurity'
+export {default as PaymentAndBilling} from './PaymentAndBilling'
+export { default as Setting} from './Setting'

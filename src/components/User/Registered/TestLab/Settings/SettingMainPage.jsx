@@ -7,10 +7,6 @@ import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
 export default function SettingMainPage(){
     const settings=[
         {name:'Profile Management',path:'profile-management',icon:faUser},
-        {name:'Account Security',path:'account-security',icon:faLock},
-        {name:'Appointment Setting',path:'appointment-setting',icon:faCalendarAlt},
-        {name:'Medical Record Management',path:'medical-record-management',icon:faLink},
-        {name:'Test Lab Preference',path:'test-lab-preference',icon:faVials},
         {name:'Payment and Billing',path:'payment-and-billing',icon:faCreditCard},
      ]
    return(
