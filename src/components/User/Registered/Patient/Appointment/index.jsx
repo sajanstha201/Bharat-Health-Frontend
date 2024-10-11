@@ -1,2 +1,5 @@
 export { default as BookAppointment} from './BookAppointment'
 export { default as Appointment} from './Appointment'
+export { default as BookLocation} from './BookLocation'
+export { default as Dropdown} from './Dropdown'
+export { default as AppointmentPayment} from './AppointmentPayment'

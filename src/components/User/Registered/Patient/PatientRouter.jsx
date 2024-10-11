@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 import MedicalReport from "./MedicalReport/MedicalReport";
 import PatientMainPage from "./PatientMainPage";
-import { Appointment, BookAppointment } from "./Appointment";
+import { Appointment, AppointmentPayment, BookAppointment, BookLocation } from "./Appointment";
 import SideBar from "../../../SideBar/SideBar";
 import { faCog, faFileMedical, faNotesMedical, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faAdjust } from "@fortawesome/free-solid-svg-icons/faAdjust";
@@ -39,8 +39,10 @@ export default function PatientRouter() {
         <Route path="" element={<PatientCommonDiv />}>
           <Route path="" element={<PatientMainPage />} />
           <Route path="appointments">
-              <Route path="" element={<Appointment/>}/>
-              <Route path="book-appointment" element={<BookAppointment/>}/>
+              <Route path="" element={<Appointment/>}></Route>
+              <Route path="page1" element={<BookAppointment/>}></Route>
+              <Route path="page2" element={<BookLocation/>}></Route>
+              <Route path="page3" element={<AppointmentPayment/>}></Route>
           </Route>
           <Route path="medical-report" element={<MedicalReport />} />
           <Route path="test-record">

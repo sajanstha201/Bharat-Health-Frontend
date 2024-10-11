@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.miriam-libre-regular {
+    font-family: "Miriam Libre", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.miriam-libre-bold {
+    font-family: "Miriam Libre", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
