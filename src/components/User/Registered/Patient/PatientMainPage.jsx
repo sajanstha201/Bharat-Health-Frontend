@@ -5,7 +5,7 @@ import Search from "../../../Search/Search"
 export default function PatientMainPage(){
    const loc=useLocation()
    return(
-      <div className="flex flex-row gap-3">
+      <div style={{fontFamily: 'miriam-libre'}} className="flex flex-row gap-3">
          <div className="w-[80%]">
             patient main 
             <div>Today Appointment</div>
