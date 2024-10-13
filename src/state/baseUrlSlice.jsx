@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const baseUrlSlice=createSlice({
     name:'base_url',
     initialState:{
-        'backend':'https://127.0.0.1/'
+        'backend':'http://127.0.0.1:8000/'
     },
     reducers:{
     }

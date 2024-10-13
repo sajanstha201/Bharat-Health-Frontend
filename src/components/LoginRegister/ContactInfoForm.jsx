@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 
-const ContactInfoForm = ({ prevStep, handleSubmit, setData }) => {
+const ContactInfoForm = ({ prevStep, handleSubmit, setData,data }) => {
   // Local state to manage form data
-  const [formData, setFormData] = useState({
-    phoneNumber: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [formData, setFormData] = useState(data);
 
   // Handler to update form data and setData
   const handleChange = (e) => {

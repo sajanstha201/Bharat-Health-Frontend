@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 
-const PersonalInfoForm = ({ nextStep, setData }) => {
+const PersonalInfoForm = ({ nextStep, setData,data }) => {
   // Local state to store the form data
-  const [formData, setFormData] = useState({
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    gender: '',
-    dobDay: '',
-    dobMonth: '',
-    dobYear: '',
-  });
+  const [formData, setFormData] = useState(data);
 
   // Handler to update formData and call the setData prop
   const handleChange = (e) => {

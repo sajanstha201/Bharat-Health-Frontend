@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 
-const AddressForm = ({ nextStep, prevStep, setData }) => {
+const AddressForm = ({ nextStep, prevStep, setData,data }) => {
   // Local state to store the form data
-  const [formData, setFormData] = useState({
-    primaryAddress: '',
-    secondaryAddress: '',
-    state: '',
-    city: '',
-    pincode: '',
-  });
+  const [formData, setFormData] = useState(data);
 
   // Handler to update formData and call the setData prop
   const handleChange = (e) => {
