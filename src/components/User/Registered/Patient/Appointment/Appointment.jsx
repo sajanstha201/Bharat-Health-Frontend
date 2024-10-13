@@ -1,10 +1,32 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import MyAppointmentCard from './MyAppointmentCard'
 
 export default function Appointment() {
+  const baseUrl=useSelector(state=>state.baseUrl).backend
+  const userInfo=useSelector(state=>state.userInfo)
+  const [appointments,setAppointments]=useState([])
+  useEffect(()=>{
+    const fetchAppointment=async()=>{
+      const response=await axios.get(baseUrl+'api/patient/appointments/'+userInfo.id+'/',{
+        'headers':{
+          'Authorization':userInfo.token
+        }
+      })
+      setAppointments(response.data)
+      console.log(response.data);
+      
+    }
+    if(appointments.length===0) fetchAppointment()
+  })
   return (
     <>
-    <Link to='page1' className='flex p-4 m-4 bg-gray-300  rounded-md'>Book Appointment</Link>
+    <div className='flex flex-wrap gap-10 p-5 items-center justify-center'>
+      {appointments.map((e,i)=>(<MyAppointmentCard appointmentDetail={e} key={i}/>))}
+    </div>
+    
     {/* <div>Today Appointment</div>
     this is fro todya AppointmentSetting
     <div>Previous Appointment</div>

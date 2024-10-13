@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userInfoSlice = createSlice({
     name: 'user_information',
     initialState: {
-        patient_id: null,
+        id: 1,
         first_name: '',
         middle_name: '',
         last_name: '',
@@ -17,7 +17,7 @@ export const userInfoSlice = createSlice({
         pin_code: null,
         gmail: '',
         phone_no: '',
-        token: '',
+        token: 'Token cdbb5f77-03f1-4e5f-8d80-56e8eac20138',
     },
     reducers: {
         setUserDetail: (state, action) => {
