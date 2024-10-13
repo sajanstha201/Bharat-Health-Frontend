@@ -6,6 +6,7 @@ import App from './App.jsx'
 import './index.css'
 import {DoctorRouter,PharmacyMainPage,TestLabMainPage,PatientRouter} from './components/User/Registered'
 import TestLabRouter from "./components/User/Registered/TestLab/TestLabRouter.jsx"
+import Register from "./components/LoginRegister/Register.jsx"
 const router = createBrowserRouter(
   [
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter(
         {
           path:"testlab/*",
           element:<TestLabRouter/>
+        },
+        {
+          path:"register",
+          element:<Register/>
         }
       ]
     }
