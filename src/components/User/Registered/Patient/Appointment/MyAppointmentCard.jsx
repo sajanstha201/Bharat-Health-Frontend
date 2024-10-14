@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const MyAppointmentCard = ({ appointmentDetail }) => {
+const MyAppointmentCard = ({ appointmentDetail,fetchAppointment }) => {
     const navigate=useNavigate()
     const baseUrl = useSelector(state => state.baseUrl).backend;
     const userInfo = useSelector(state => state.userInfo); // Ensure userInfo is defined
@@ -37,6 +37,7 @@ const MyAppointmentCard = ({ appointmentDetail }) => {
                 headers: { 'Authorization': `${userInfo.token}` } // Include the token properly
             });
             toast.success('Appointment cancelled successfully');
+            fetchAppointment()
         } catch (error) {
             if (error.response) {
                 toast.error(`Error: ${error.response.data.detail || 'An error occurred'}`);

@@ -11,6 +11,7 @@ import UpcommingAppointment from "./Appointment/UpcommingAppointment"
 import CompletedAppointment from "./Appointment/CompletedAppointment"
 import {MedicalPrescription, NewPrescription, OldPrescription } from "./MedicalPrescription"
 import DoctorMainPage from "./DoctorMainPage"
+import PatientDetail from "./Appointment/PatientDetail"
 const DoctorCommonDiv=()=>{
     return(
     <div className="flex flex-row gap-3">
@@ -39,10 +40,11 @@ export default function DoctorRouter(){
    <Routes>
         <Route path="" element={<DoctorCommonDiv/>}>
             <Route path="" element={<DoctorMainPage/>}/>
-            <Route path="appointment" element={<Appointment/>}>
-                <Route path="" element={<UpcommingAppointment/>} />
+            <Route path="appointment">
+                <Route path="" element={<Appointment/>} />
                 <Route path="history" element={<CompletedAppointment/>}/>
                 <Route path="detail" element={<AppointmentDetails/>}/>
+                <Route path="patient-detail" element={<PatientDetail/>}/>
             </Route>
             <Route path="prescription" element={<MedicalPrescription/>}>
                 <Route path="" element={<OldPrescription/>}/>

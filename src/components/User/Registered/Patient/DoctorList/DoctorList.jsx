@@ -6,12 +6,12 @@ import axios from 'axios';
 const DoctorList = () => {
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const [doctorsDetail,setDoctorsDetail]=useState([])
+    const fetchDoctorsData=async()=>{
+      const response=await axios.get(baseUrl+'api/patient/view-doctors/')
+      setDoctorsDetail(response.data)
+  }
     useEffect(()=>{
-        const fetchData=async()=>{
-            const response=await axios.get(baseUrl+'api/patient/view-doctors/')
-            setDoctorsDetail(response.data)
-        }
-        fetchData()
+        fetchDoctorsData()
     },[])
   return (
     <div className="flex flex-wrap justify-around gap-4 mt-8 w-full">
