@@ -16,7 +16,6 @@ export default function PatientDetail(){
         try{
             const response=await axios.get(baseUrl+'api/doctor/view-patients/'+patientId+'/',{headers:{'Authorization':userInfo.token}})
             setPatientInfo(response.data)
-            console.log(response.data)
         }
         catch(error){
             toast.error(error)
