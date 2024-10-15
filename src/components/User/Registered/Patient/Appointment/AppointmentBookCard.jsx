@@ -18,7 +18,6 @@ const AppointmentBookCard = () => {
   const loc = useLocation();
   const params = new URLSearchParams(loc.search);
   const doctor = JSON.parse(params.get('doctor'));
-  console.log(doctor)
   const [date, setDate] = useState(''); // State for date
   const [time, setTime] = useState(''); // State for time
   const [appointmentType, setAppointmentType] = useState('');

@@ -17,8 +17,8 @@ export const userInfoSlice = createSlice({
         pin_code: null,
         gmail: '',
         phone_no: '',
-        // token: 'Token cdbb5f77-03f1-4e5f-8d80-56e8eac20138',
-        token:'Token 1204012234234werewf35  '
+        token: 'Token cdbb5f77-03f1-4e5f-8d80-56e8eac20138',
+        // token:'Token 1204012234234werewf35  '
     },
     reducers: {
         setUserDetail: (state, action) => {
