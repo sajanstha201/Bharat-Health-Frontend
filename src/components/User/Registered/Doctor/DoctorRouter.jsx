@@ -2,7 +2,6 @@ import React from "react"
 import { Outlet, Route, Routes } from "react-router-dom"
 import SideBar from "../../../SideBar/SideBar"
 import { faAdjust, faBlog, faCar,faClose, faCog, faHeartbeat, faMessage, faPills, faPrescription, faUserDoctor } from "@fortawesome/free-solid-svg-icons"
-import Appointment from "./Appointment/Appointment"
 import DiseasePredictionModel from "./DiseasePredictionModel/DiseasePredictionModel"
 import Message from "./Message/Message"
 import { AccountSecurity, AppointmentPreference, ClinicSettings, PaymentAndBilling, ProfileManagement, Setting } from "./Setting"
@@ -12,6 +11,7 @@ import CompletedAppointment from "./Appointment/CompletedAppointment"
 import {MedicalPrescription, NewPrescription, OldPrescription } from "./MedicalPrescription"
 import DoctorMainPage from "./DoctorMainPage"
 import PatientDetail from "./Appointment/PatientDetail"
+import { MedicalPrescriptionCard } from "../../../Records"
 const DoctorCommonDiv=()=>{
     return(
     <div className="flex flex-row gap-3">
@@ -41,10 +41,11 @@ export default function DoctorRouter(){
         <Route path="" element={<DoctorCommonDiv/>}>
             <Route path="" element={<DoctorMainPage/>}/>
             <Route path="appointment">
-                <Route path="" element={<Appointment/>} />
+                <Route path="" element={<UpcommingAppointment/>} />
                 <Route path="history" element={<CompletedAppointment/>}/>
                 <Route path="detail" element={<AppointmentDetails/>}/>
                 <Route path="patient-detail" element={<PatientDetail/>}/>
+                <Route path="view-report" element={<MedicalPrescriptionCard/>}/>
             </Route>
             <Route path="prescription" element={<MedicalPrescription/>}>
                 <Route path="" element={<OldPrescription/>}/>

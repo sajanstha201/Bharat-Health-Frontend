@@ -1,31 +1,37 @@
-import React, { useEffect } from "react"
-import { useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEye, faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons"
+import React, { useEffect, useState } from "react"
+import '../Patient.css'
 import { useSelector } from "react-redux"
-import axios from "axios"
 import { toast } from "react-toastify"
+import axios from "axios"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faStar,faEye } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from "react-router-dom"
-export default function DisplayAllMedicalReport(){
-    const [medicalReport,setMedicalReport]=useState([])
+
+export default function StarredMedicalReport(){
     const navigate=useNavigate()
-      const userInfo=useSelector(state=>state.userInfo)
-      const baseUrl=useSelector(state=>state.baseUrl).backend
-      const fetchMedicalReports=async()=>{
-         try{
-            const response=await axios.get(baseUrl+'api/patient/medical-report/'+userInfo.id+'/',{headers:{'Authorization':userInfo.token}})
-            console.log(response.data)
-            setMedicalReport(response.data)
-         }
-         catch(error){
-            toast.error('Not able to fetch Medical Report')
-         }
-      }
-      useEffect(()=>{
-         fetchMedicalReports()
-      },[userInfo.id])
+    const [medicalReport,setMedicalReport]=useState([])
+    const baseUrl=useSelector(state=>state.baseUrl).backend
+    const userInfo=useSelector(state=>state.userInfo)
+    const fetchStarredMedicalReports=async()=>{
+        try{
+           const response=await axios.get(`${baseUrl}api/patient/medical-report/${userInfo.id}/?starred=${true}`,{headers:{'Authorization':userInfo.token}})
+           console.log(response.data)
+           setMedicalReport(response.data)
+        }
+        catch(error){
+            console.log(error)
+           toast.error('Not able to fetch Medical Report')
+        }
+     }
+     useEffect(()=>{
+        fetchStarredMedicalReports()
+     },[userInfo.id])
    return(
-    <table className="w-[90%] m-auto">
+   <>
+   <h1 className="text-[30px] font-bold">Starred Medical Report</h1>
+   {medicalReport.length===0?<p className="text-sm">No starred medical report</p>
+   :
+       <table className="w-[90%] m-auto">
       <tr className="">
          <td  className="table-data">S.No</td>
          <td className="table-data">Name</td>
@@ -41,7 +47,7 @@ export default function DisplayAllMedicalReport(){
             onClick={async()=>{
                const response=await axios.patch(baseUrl+'api/patient/medical-report/'+userInfo.id+'/',{'starred':!element.starred,'prescription_id':element.prescription_id},{headers:{'Authorization':userInfo.token}})
                console.log(response.data)
-               fetchMedicalReports()
+               fetchStarredMedicalReports()
             }}
          >{element.starred?<FontAwesomeIcon icon={faStar} style={{color:'orange'}}/>:<FontAwesomeIcon icon={faStar} style={{}}/>}</td>
          <td className="table-data hover:scale-110 transition-all duration-200"
@@ -52,6 +58,6 @@ export default function DisplayAllMedicalReport(){
             <FontAwesomeIcon icon={faEye}/>
          </td>
       </tr>))}
-    </table>
-   )
+    </table>}
+   </>)
 }

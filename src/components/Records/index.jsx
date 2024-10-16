@@ -1,0 +1,1 @@
+export {default as MedicalPrescriptionCard} from './MedicalPrescriptionCard'

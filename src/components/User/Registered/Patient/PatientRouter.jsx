@@ -10,6 +10,7 @@ import {SettingMainPage,AccountSecurity,AppointmentSetting,MedicalRecordManageme
 import Search from "../../../Search/Search"
 import { AddingTestRecord, DisplayAllTestRecord, TestRecordMainPage, ViewOneTestRecord } from "./TestRecord";
 import DoctorList from "./DoctorList/DoctorList";
+import MedicalPrescriptionCard from "./MedicalReport/MedicalPrescriptionCard";
 const PatientCommonDiv = () => {
   return (
     <div className="flex">
@@ -48,7 +49,10 @@ export default function PatientRouter() {
               <Route path="page3" element={<AppointmentPayment/>}></Route>
           </Route>
           <Route path="doctors" element={<DoctorList/>}></Route>
-          <Route path="medical-report" element={<MedicalReport />} />
+          <Route path="medical-report" >
+              <Route path=""element={<MedicalReport />}/>
+              <Route path="view" element={<MedicalPrescriptionCard/>}/>
+          </Route>
           <Route path="test-record">
                 <Route path="" element={<TestRecordMainPage/>}/>
                 <Route path='adding-test-record' element={<AddingTestRecord/>}/>

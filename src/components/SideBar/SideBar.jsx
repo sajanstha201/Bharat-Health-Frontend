@@ -9,7 +9,7 @@ export default function SideBar({navElements}){
    return(
     <div className={`h-screen flex flex-col gap-10 p-4 w-full top-0  left-0 rounded-md  bg-blue-50 shadow-lg transition-all duration-200`}>
         {navElements.map(element =>(       
-            <Link to={element.url} className="flex items-center gap-5">
+        <Link key={element.url} to={element.url} className="flex items-center gap-5">
             <FontAwesomeIcon icon={element.icon} size="2x"/>
             {element.name}
         </Link>))}
