@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useLocation, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
+import { Link } from "react-router-dom"
 export default function PatientDetail(){
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const userInfo=useSelector(state=>state.userInfo)
@@ -91,7 +92,7 @@ export default function PatientDetail(){
             </div>
         </div>
         </div>
-
+    <Link to='/doctor/prescription/' className="border p-4 bg-blue-500 hover:bg-blue-600 rounded-md w-auto text-white font-bold flex items-center justify-center cursor-pointer m-2 hover:scale-105 transition-all duration-300">Write a Medical Prescriptioin</Link>
 
     <h1>Medical Report</h1>
     {medicalReport.map((e,i)=>(

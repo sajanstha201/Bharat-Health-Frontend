@@ -38,6 +38,7 @@ export default function UpcommingAppointment(){
             patientId={e.patient} 
             appointmentId={e.appointment_id}
             appointmentType={e.appointment_type}
+            fetchAppointments={fetchAppointment}
             />))}
       </div>
       <Outlet/>
