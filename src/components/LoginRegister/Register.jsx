@@ -7,11 +7,13 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Navigate, useNavigate, useNavigation } from 'react-router-dom';
 import { setUserDetail } from '../../state/userInfoSlice';
+import ChooseUserForm from './ChooseUserForm';
 const Register = () => {
   const navigate=useNavigate()
   const baseUrl=useSelector(state=>state.baseUrl).backend
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const dispatch=useDispatch()
+  const [user,setUser]=useState('')
   const convertDataFormat = (data) => {
     // Create a new object with the desired keys mapped from the original data
     const transformedData = {
@@ -59,18 +61,19 @@ const Register = () => {
     // Submission logic here
     try{
       const transformedData = convertDataFormat(data);
-      const response=await axios.post(baseUrl+'api/patient/profile/create/',transformedData)
+      const response=await axios.post(`${baseUrl}api/${user==='patient'?'patient':'doctor'}/profile/create/`,transformedData)
       toast.success('successfully login')
       dispatch(setUserDetail(response.data))
-      navigate('/patient')
+      navigate(user==='patient'?'/patient':'/doctor')
     }
     catch(error){
-      toast.error(error)
+      toast.error('Registration Error')
     }
   };
 
   return (
-    <div>
+    <div className='h-[100vh] flex items-center justify-center'>
+      {step==0&&<ChooseUserForm nextStep={nextStep}/>}
       {step === 1 && <PersonalInfoForm nextStep={nextStep} setData={setData} data={data}/>}
       {step === 2 && <AddressForm nextStep={nextStep} prevStep={prevStep} setData={setData} data={data}/>}
       {step === 3 && <ContactInfoForm prevStep={prevStep} handleSubmit={handleSubmit} setData={setData} data={data}/>}

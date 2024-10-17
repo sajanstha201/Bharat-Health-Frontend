@@ -22,7 +22,7 @@ const PatientCommonDiv = () => {
             { name: "My Appointments", url: "/patient/appointments", icon: faAdjust },
             {name:"Doctors",url:"/patient/doctors",icon:faUserDoctor},
             { name: "Medical Report", url: "/patient/medical-report", icon: faFileMedical },
-            { name: "Test Record", url: "/patient/test-record", icon: faNotesMedical },
+            // { name: "Test Record", url: "/patient/test-record", icon: faNotesMedical },
             { name: "Settings", url: "/patient/settings", icon: faCog },
           ]}
         />
